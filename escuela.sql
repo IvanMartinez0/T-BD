@@ -2,7 +2,7 @@
 --
 CREATE TABLE `alumno` (
   `Id_Alumno` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `Nombre_Alumno` varchar(50) NOT NULL,
+  `Nombre_Alumno` varchar(50) NOT NULL ,
   `Apellido_Alumno` varchar(50) NOT NULL,
   `Cuil_Alumno` varchar(50) NOT NULL,
   `Genero_Alumno` int(5) NOT NULL,
@@ -22,7 +22,6 @@ CREATE TABLE `alumno` (
   `Esp_Alumno` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
---
 -- Estructura de tabla para la tabla `barrio`
 --
 
@@ -31,9 +30,7 @@ CREATE TABLE `barrio` (
   `Nombre_Barrio` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- --------------------------------------------------------
 
---
 -- Estructura de tabla para la tabla `cargo`
 --
 
@@ -42,15 +39,14 @@ CREATE TABLE `cargo` (
   `Nombre_Cargo` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- --------------------------------------------------------
---
+
 -- Estructura de tabla para la tabla `ciudad`
 --
 CREATE TABLE `ciudad` (
   `Id_Ciudad` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Nombre_Ciudad` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
--- --------------------------------------------------------
+
 -- Estructura de tabla para la tabla `cursos`
 --
 
@@ -59,9 +55,7 @@ CREATE TABLE `cursos` (
   `Nombre_Curso` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- --------------------------------------------------------
 
---
 -- Estructura de tabla para la tabla `especialidad`
 --
 
@@ -70,34 +64,24 @@ CREATE TABLE `especialidad` (
   `Nombre_Especialidad` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- --------------------------------------------------------
 
---
 -- Estructura de tabla para la tabla `genero`
---
 
 CREATE TABLE `genero` (
   `Id_Genero` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Nombre_Genero` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- --------------------------------------------------------
 
---
 -- Estructura de tabla para la tabla `materia`
 --
-
 CREATE TABLE `materia` (
   `Id_Materia` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Nombre_Materia` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `personal`
 --
-
 CREATE TABLE `personal` (
   `Id_Personal` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Nombre_Personal` varchar(30) NOT NULL,
@@ -120,18 +104,13 @@ CREATE TABLE `personal` (
   `Manzana_Personal` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
--- --------------------------------------------------------
-
 --
 -- Estructura de tabla para la tabla `turno`
 --
-
 CREATE TABLE `turno` (
   `Id_Turno` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `Nombre_Turno` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
---
 -- Indices de la tabla `alumno`
 --
 ALTER TABLE `alumno`
@@ -141,9 +120,6 @@ ALTER TABLE `alumno`
   ADD KEY `Barrio_Alumno` (`Barrio_Alumno`),
   ADD KEY `Ciudad_Alumno` (`Ciudad_Alumno`),
   ADD KEY `Esp_Alumno` (`Esp_Alumno`);
-
-
---
 -- Indices de la tabla `personal`
 --
 ALTER TABLE `personal`
@@ -154,9 +130,6 @@ ALTER TABLE `personal`
   ADD KEY `Cargo_Personal` (`Cargo_Personal`),
   ADD KEY `Curso_Personal` (`Curso_Personal`),
   ADD KEY `Turno_Personal` (`Turno_Personal`),
-
-
-
 -- Relaciones de la tabla `alumno`
 
 ALTER TABLE `alumno`
