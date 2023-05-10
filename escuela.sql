@@ -1,147 +1,164 @@
 
 CREATE TABLE `alumno` (
 
-  `Id_Alumno` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `Nombre_Alumno` varchar(50) NOT NULL,
-  `Apellido_Alumno` varchar(50) NOT NULL,
-  `Cuil_Alumno` varchar(50) NOT NULL,
-  `Genero_Alumno` int(5) NOT NULL,
-  `FecNac_Alumno` date NOT NULL,
-  `Correo_Alumno` varchar(50) NOT NULL,
-  `Telefono_Alumno` varchar(50) NOT NULL,
-  `Curso_Alumno` int(50) NOT NULL,
-  `Turno_Alumno` int(50) NOT NULL,
-  `Barrio_Alumno` int(50) NOT NULL,
-  `Ciudad_Alumno` int(50) NOT NULL,
-  `Calle_Alumno` varchar(50) NOT NULL,
-  `Altura_Alumno` varchar(50) NOT NULL,
-  `Manzana_Alumno` varchar(10) NOT NULL,
-  `Dpto_Alumno` varchar(10) NOT NULL,
-  `Piso_Alumno` varchar(10) NOT NULL,
-  `CodPos_Alumno` varchar(10) NOT NULL,
-  `Esp_Alumno` int(10) NOT NULL,
-  `notas_id`int(10) NOT NULL,
-  `aula_id`int(50) NOT NULL,
-  `materia_id`int(50) NOT NULL,
-  `ciclo_id`int(50) NOT NULL,
-  `provincia_id`int(50) NOT NULL
+  `id_alum` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `nombre_alum` varchar(50) NOT NULL,
+  `apellido_alum` varchar(50) NOT NULL,
+  `cuil_alum` varchar(50) NOT NULL,
+  `genero_alum` int(5) NOT NULL,
+  `fecnac_alum` date NOT NULL,
+  `correo_alum` varchar(50) NOT NULL,
+  `telefono_alum` varchar(50) NOT NULL,
+  `curso_alum` int(50) NOT NULL,
+  `turno_alum` int(50) NOT NULL,
+  `barrio_alum` int(50) NOT NULL,
+  `ciudad_alum` int(50) NOT NULL,
+  `calle_alum` varchar(50) NOT NULL,
+  `altura_alum` varchar(50) NOT NULL,
+  `manzana_alum` varchar(10) NOT NULL,
+  `dpto_alum` varchar(10) NOT NULL,
+  `piso_alum` varchar(10) NOT NULL,
+  `codpos_alum` varchar(10) NOT NULL,
+  `materia_alum`int(50) NOT NULL,
+  `prov_alum`int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
 
 
 CREATE TABLE `barrio` (
-  `Id_Barrio` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `Nombre_Barrio` varchar(25) NOT NULL
+  `id_barrio` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `nombre_barrio` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-
-
 CREATE TABLE `cargo` (
-  `Id_Cargo` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `Nombre_Cargo` varchar(20) NOT NULL
+  `id_cargo` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `nombre_cargo` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 
 CREATE TABLE `ciudad` (
-  `Id_Ciudad` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `Nombre_Ciudad` varchar(50) NOT NULL
+  `id_ciudad` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `nombre_ciudad` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 
-CREATE TABLE `cursos` (
-  `Id_Curso` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `Nombre_Curso` varchar(50) NOT NULL
+CREATE TABLE `curso` (
+  `id_curso` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `nombre_curso` varchar(50) NOT NULL,
+  `esp_curso` int(5) NOT NULL,
+  `ciclo_curso` int(5) NOT NULL,
+  `aula_curso` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
+
+CREATE TABLE `nota` (
+  `id_nota` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `nota` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+
+CREATE TABLE `aula` (
+  `id_aula` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `numero_aula` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+CREATE TABLE `provincia` (
+  `id_prov` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `nombre_prov` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 
 CREATE TABLE `especialidad` (
-  `Id_Especialidad` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `Nombre_Especialidad` varchar(50) NOT NULL
+  `id_esp` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `nombre_esp` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
-
+CREATE TABLE `horario` (
+  `id_horario` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `curso_id` int(5) NOT NULL,
+  `aula_id` varchar(50) NOT NULL,
+  `inicio_horario` varchar(50) NOT NULL,
+  `final_horario` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 CREATE TABLE `genero` (
-  `Id_Genero` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `Nombre_Genero` varchar(10) NOT NULL
+  `id_genero` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `nombre_genero` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
-
 
 CREATE TABLE `materia` (
-  `Id_Materia` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `Nombre_Materia` varchar(255) NOT NULL
+  `id_materia` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `nombre_materia` varchar(255) NOT NULL,
+  `nota_materia`int (50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
-
 
 CREATE TABLE `personal` (
-  `Id_Personal` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `Nombre_Personal` varchar(30) NOT NULL,
-  `Apellido_Personal` varchar(30) NOT NULL,
-  `Cuil_Personal` varchar(30) NOT NULL,
-  `FecNac_Personal` date NOT NULL,
-  `Telefono_personal` varchar(30) NOT NULL,
-  `Correo_Personal` varchar(30) NOT NULL,
-  `Genero_Personal` int(5) NOT NULL,
-  `Barrio_Personal` int(50) NOT NULL,
-  `Calle_Personal` varchar(30) NOT NULL,
-  `Ciudad_Personal` int(50) NOT NULL,
-  `CodPos_Personal` varchar(10) NOT NULL,
-  `Piso_Personal` varchar(10) NOT NULL,
-  `Dpto_Personal` varchar(11) NOT NULL,
-  `Cargo_Personal` int(11) NOT NULL,
-  `Curso_Personal` int(11) NOT NULL,
-  `Turno_Personal` int(10) NOT NULL,
-  `Altura_Personal` varchar(10) NOT NULL,
-  `Manzana_Personal` varchar(10) NOT NULL
+  `id_pers` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `nombre_pers` varchar(30) NOT NULL,
+  `apellido_pers` varchar(30) NOT NULL,
+  `cuil_pers` varchar(30) NOT NULL,
+  `fecNac_pers` date NOT NULL,
+  `telefono_pers` varchar(30) NOT NULL,
+  `correo_pers` varchar(30) NOT NULL,
+  `genero_pers` int(5) NOT NULL,
+  `barrio_pers` int(50) NOT NULL,
+  `calle_pers` varchar(30) NOT NULL,
+  `ciudad_pers` int(50) NOT NULL,
+  `codpos_pers` varchar(10) NOT NULL,
+  `piso_pers` varchar(10) NOT NULL,
+  `dpto_pers` varchar(11) NOT NULL,
+  `cargo_pers` int(11) NOT NULL,
+  `curso_pers` int(11) NOT NULL,
+  `turno_pers` int(10) NOT NULL,
+  `altura_pers` varchar(10) NOT NULL,
+  `manzana_pers` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
-
 
 
 CREATE TABLE `turno` (
-  `Id_Turno` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  `Nombre_Turno` varchar(10) NOT NULL
+  `id_turno` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `nombre_turno` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 
 ALTER TABLE `alumno`
-  ADD KEY `Curso_Alumno` (`Curso_Alumno`),
-  ADD KEY `Genero_Alumno` (`Genero_Alumno`),
-  ADD KEY `Turno_Alumno` (`Turno_Alumno`),
-  ADD KEY `Barrio_Alumno` (`Barrio_Alumno`),
-  ADD KEY `Ciudad_Alumno` (`Ciudad_Alumno`),
-  ADD KEY `Esp_Alumno` (`Esp_Alumno`);
-
-
+  ADD KEY `curso_alum` (`curso_alum`),
+  ADD KEY `genero_alum` (`genero_alum`),
+  ADD KEY `turno_alum` (`turno_alum`),
+  ADD KEY `barrio_alum` (`barrio_alum`),
+  ADD KEY `ciudad_alum` (`ciudad_alum`),
+  ADD KEY `prov_alum` (`prov_alum`),
+  ADD KEY `materia_alum` (`materia_alum`);
 
 ALTER TABLE `personal`
-  ADD KEY `Genero_Personal` (`Genero_Personal`),
-  ADD KEY `Barrio_Persona` (`Barrio_Personal`),
-  ADD KEY `Barrio_Personal` (`Barrio_Personal`),
-  ADD KEY `Ciudad_Personal` (`Ciudad_Personal`),
-  ADD KEY `Cargo_Personal` (`Cargo_Personal`),
-  ADD KEY `Curso_Personal` (`Curso_Personal`),
-  ADD KEY `Turno_Personal` (`Turno_Personal`);
+  ADD KEY `genero_Pers` (`genero_pers`),
+  ADD KEY `barrio_Pers` (`barrio_pers`),
+  ADD KEY `ciudad_Pers` (`ciudad_pers`),
+  ADD KEY `cargo_Pers` (`cargo_pers`),
+  ADD KEY `curso_pers` (`curso_pers`),
+  ADD KEY `turno_Pers` (`turno_pers`);
+
+  ALTER TABLE `curso`
+  ADD KEY `esp_curso` (`esp_curso`),
+  ADD KEY `ciclo_curso` (`ciclo_curso`),
+  ADD KEY `aula_curso` (`aula_curso`);
 
 
 
 
 
 ALTER TABLE `alumno`
-  ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`Turno_Alumno`) REFERENCES `turno` (`Id_Turno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `alumno_ibfk_2` FOREIGN KEY (`Curso_Alumno`) REFERENCES `cursos` (`Id_Curso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `alumno_ibfk_3` FOREIGN KEY (`Genero_Alumno`) REFERENCES `genero` (`Id_Genero`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `alumno_ibfk_4` FOREIGN KEY (`Barrio_Alumno`) REFERENCES `barrio` (`Id_Barrio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `alumno_ibfk_5` FOREIGN KEY (`Ciudad_Alumno`) REFERENCES `ciudad` (`Id_Ciudad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `alumno_ibfk_6` FOREIGN KEY (`Esp_Alumno`) REFERENCES `especialidad` (`Id_Especialidad`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
+  ADD CONSTRAINT `alumno_ibfk_1` FOREIGN KEY (`turno_alum`) REFERENCES `turno` (`id_turno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `alumno_ibfk_2` FOREIGN KEY (`curso_alum`) REFERENCES `cursos` (`id_curso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `alumno_ibfk_3` FOREIGN KEY (`genero_alum`) REFERENCES `genero` (`id_genero`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `alumno_ibfk_4` FOREIGN KEY (`barrio_alum`) REFERENCES `barrio` (`id_barrio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `alumno_ibfk_5` FOREIGN KEY (`ciudad_alum`) REFERENCES `ciudad` (`id_ciudad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `alumno_ibfk_8` FOREIGN KEY (`materia_alum`) REFERENCES `materia` (`id_materia`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `alumno_ibfk_10` FOREIGN KEY (`prov_alum`) REFERENCES `provincia` (`id_prov`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 ALTER TABLE `personal`
-  ADD CONSTRAINT `personal_ibfk_1` FOREIGN KEY (`Cargo_Personal`) REFERENCES `cargo` (`Id_Cargo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`Turno_Personal`) REFERENCES `turno` (`Id_Turno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `personal_ibfk_3` FOREIGN KEY (`Barrio_Personal`) REFERENCES `barrio` (`Id_Barrio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `personal_ibfk_4` FOREIGN KEY (`Ciudad_Personal`) REFERENCES `ciudad` (`Id_Ciudad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `personal_ibfk_5` FOREIGN KEY (`Curso_Personal`) REFERENCES `cursos` (`Id_Curso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `personal_ibfk_6` FOREIGN KEY (`Genero_Personal`) REFERENCES `genero` (`Id_Genero`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `personal_ibfk_1` FOREIGN KEY (`cargo_pers`) REFERENCES `cargo` (`id_cargo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`turno_pers`) REFERENCES `turno` (`id_turno`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `personal_ibfk_3` FOREIGN KEY (`barrio_pers`) REFERENCES `barrio` (`id_barrio`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `personal_ibfk_4` FOREIGN KEY (`ciudad_pers`) REFERENCES `ciudad` (`id_ciudad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `personal_ibfk_5` FOREIGN KEY (`curso_pers`) REFERENCES `cursos` (`id_curso`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `personal_ibfk_6` FOREIGN KEY (`genero_pers`) REFERENCES `genero` (`id_genero`) ON DELETE NO ACTION ON UPDATE NO ACTION;
